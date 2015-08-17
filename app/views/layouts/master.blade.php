@@ -23,6 +23,7 @@
 			<div class="navbar-collapse collapse navbar-responsive-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ URL::route('home') }}">Home</a></li>
+                    <li><a href="{{ URL::route('forum-home') }}">Forums</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					@if(!Auth::check())
