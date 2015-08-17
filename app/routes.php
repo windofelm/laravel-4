@@ -18,6 +18,15 @@
 
 Route::get('/', array('uses' => 'HomeController@hello', 'as' => 'home'));
 
+Route::group(array('prefix' => '/forum'),function(){
+
+    Route::get('/',array('uses' => 'ForumController@index', 'as' => 'forum-home'));
+    Route::get('/category/{id}', array('uses' => 'ForumController@category', 'as' => 'forum-category'));
+    Route::get('/thread/{id}', array('uses' => 'ForumController@thread', 'as' => 'forum-thread'));
+
+});
+
+
 Route::group(array('before' => 'guest'),function(){
 
 	Route::get('/user/create', array('uses' => 'UserController@getCreate', 'as' => 'getCreate'));
