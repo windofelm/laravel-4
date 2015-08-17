@@ -24,7 +24,9 @@ Route::group(array('prefix' => '/forum'),function(){
     Route::get('/category/{id}', array('uses' => 'ForumController@category', 'as' => 'forum-category'));
     Route::get('/thread/{id}', array('uses' => 'ForumController@thread', 'as' => 'forum-thread'));
 
-    Route::group(array('before' => 'auth'), function(){
+    Route::group(array('before' => 'admin'), function(){
+
+        Route::get('/group/{id}/delete', array('uses' => 'ForumController@deleteGroup', 'as' => 'forum-delete-group'));
 
         Route::group(array('before' => 'csrf'), function(){
 

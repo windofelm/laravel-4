@@ -15,13 +15,18 @@
     @foreach($groups as $group)
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">{{ $group->title }}</h3>
+                <div class="clearfix">
+                    <h3 class="panel-title pull-left">{{ $group->title }}</h3>
+                    @if(Auth::check() && Auth::user()->isAdmin())
+                        <a href="#" id="{{ $group->id }}" class="btn btn-danger btn-xs pull-right delete_group" data-toggle="modal" data-target="#group_delete">Delete</a>
+                    @endif
+                </div>
             </div>
             <div class="panel-body panel-list-group">
                 <div class="list-group">
                     @foreach($categories as $category)
                         @if($category->group_id == $group->id)
-                            <a href="{{ URL::route('forum-category',$category->id) }}" class="list-group-item">{{ $category->title }}</a>
+                            <a href="{{ URL::route('forum-category',$category->id) }}" class="list-group-item">{{ $category->title }} <span class="badge">14</span></a>
                         @endif
                     @endforeach
                 </div>
@@ -55,6 +60,28 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal" id="form_submit">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Delete Group Modal -->
+        <div class="modal fade" id="group_delete" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title">Delete Group</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Are you sure you want to delete this group.</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <a href="#" class="btn btn-primary" id="btn_delete_group">Delete</a>
                     </div>
                 </div>
             </div>
