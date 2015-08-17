@@ -24,6 +24,14 @@ Route::group(array('prefix' => '/forum'),function(){
     Route::get('/category/{id}', array('uses' => 'ForumController@category', 'as' => 'forum-category'));
     Route::get('/thread/{id}', array('uses' => 'ForumController@thread', 'as' => 'forum-thread'));
 
+    Route::group(array('before' => 'auth'), function(){
+
+        Route::group(array('before' => 'csrf'), function(){
+
+            Route::post('/group',array('uses' => 'ForumController@storeGroup', 'as' => 'forum-store-group'));
+        });
+    });
+
 });
 
 
