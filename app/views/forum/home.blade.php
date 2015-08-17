@@ -16,7 +16,7 @@
                 <div class="list-group">
                     @foreach($categories as $category)
                         @if($category->group_id == $group->id)
-                        <a class="list-group-item">{{ $category->title }}</a>
+                            <a class="list-group-item">{{ $category->title }}</a>
                         @endif
                     @endforeach
                 </div>
