@@ -17,9 +17,11 @@ class ForumController extends BaseCOntroller{
 
             return Redirect::route('forum-home')->with('fail', 'That category doesen\'t exist');
         }
+
         $threads = $category->threads();
 
-        return View::make('forum.category')->with('category', $category)->with('threads', $threads);
+
+         return View::make('forum.category')->with('category', $category)->with('threads', $threads);
     }
 
     public function thread($id){
@@ -148,7 +150,8 @@ class ForumController extends BaseCOntroller{
 
         if($validator->fails()){
 
-            return Redirect::route('forum-home')->withInput()->withErrors($validator)->with('modal','#category_modal');
+            // Hata döndüğünde formun action alanını doldurmak için; ->with('new-form-action','forum/category/'.$id.'/new')
+            return Redirect::route('forum-home')->withInput()->withErrors($validator)->with('modal','#category_modal')->with('new-form-action','forum/category/'.$id.'/new');
         }else{
 
 

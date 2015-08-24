@@ -103,7 +103,12 @@
                         <h4 class="modal-title">Add New Category</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="category_form" method="post">
+                        @if($errors->has('category_name'))
+                            <form id="category_form" method="post" action="{{ Session::get('new-form-action') }}">
+                        @else
+                            <form id="category_form" method="post">
+                        @endif
+
                             <div class="form-group {{ ($errors->has('category_name')) ? 'has-error' : '' }}">
                                 <label for="category_name">Category Name:</label>
                                 <input type="text" name="category_name" id="category_name" class="form-control"/>

@@ -18,6 +18,10 @@
 
 Route::get('/', array('uses' => 'HomeController@hello', 'as' => 'home'));
 
+Route::get('/sample', array('uses' =>'SampleController@sampleFunction', 'as' =>'sampleAction'));
+
+
+
 Route::group(array('prefix' => '/forum'),function(){
 
     Route::get('/',array('uses' => 'ForumController@index', 'as' => 'forum-home'));
