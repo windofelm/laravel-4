@@ -10,6 +10,11 @@ class ForumThread extends Eloquent{
         $this->belongsTo('ForumGroup');
     }
 
+    public function author(){
+
+        return $this->belongsTo('User', 'author_id');
+    }
+
     public function category(){
 
         $this->belongsTo('ForumCategory');
@@ -19,4 +24,6 @@ class ForumThread extends Eloquent{
 
         return $this->hasMany('ForumComment', 'thread_id');
     }
+
+
 }

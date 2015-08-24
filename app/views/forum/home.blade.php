@@ -27,7 +27,7 @@
                 <div class="list-group">
                     @foreach($categories as $category)
                         @if($category->group_id == $group->id)
-                            <a href="{{ URL::route('forum-category',$category->id) }}" class="list-group-item">{{ $category->title }} <span class="badge">14</span></a>
+                            <a href="{{ URL::route('forum-category',$category->id) }}" class="list-group-item">{{ $category->title }} <span class="badge">{{ $category->threads()->count() }}</span></a>
                         @endif
                     @endforeach
                 </div>
