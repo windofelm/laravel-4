@@ -54,9 +54,14 @@ class ForumController extends BaseCOntroller{
             return Redirect::route('forum-home')->with('fail','That group doesen\'t exist.');
         }
 
-            $categories = ForumCategory::where('group_id', $id);
-            $threads = ForumThread::where('group_id', $id);
-            $comments = ForumComment::where('group_id', $id);
+            //$categories = ForumCategory::where('group_id', $id);
+            //$threads = ForumThread::where('group_id', $id);
+            //$comments = ForumComment::where('group_id', $id);
+
+            $categories = $group->categories();
+            $threads = $group->threads();
+            $comments = $group->comments();
+
 
             $delCa = true;
             $delTh = true;
