@@ -17,7 +17,7 @@ class ForumThread extends Eloquent{
 
     public function category(){
 
-        $this->belongsTo('ForumCategory');
+        return $this->belongsTo('ForumCategory');
     }
 
     public function comments(){

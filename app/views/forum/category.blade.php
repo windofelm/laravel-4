@@ -10,11 +10,15 @@
 
 @section('content')
 
+    <ol class="breadcrumb">
+        <li><a href="{{ URL::route('forum-home') }}">Forums</a></li>
+        <li class="active">{{ $category->title }}</li>
+    </ol>
 
-    @if(Auth::check())
-        <div><a class="btn btn-default" href="{{ URL::route('forum-get-new-thread', $category->id) }}">Add Thread</a></div>
-        <hr/>
-    @endif
+    {{--@if(Auth::check())--}}
+        {{--<div><a class="btn btn-default" href="{{ URL::route('forum-get-new-thread', $category->id) }}">Add Thread</a></div>--}}
+        {{--<hr/>--}}
+    {{--@endif--}}
 
 
         <div class="panel panel-primary">
