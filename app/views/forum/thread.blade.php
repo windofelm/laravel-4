@@ -15,8 +15,9 @@
         <li><a href="{{ URL::route('forum-category', $thread->category_id) }}">{{ $thread->category->title }}</a></li>
         <li class="active">{{ $thread->title }}</li>
     </ol>
-
-        <a href="{{ URL::route('forum-delete-thread', $thread->id) }}" class="btn btn-danger pull-right">Delete</a>
+        @if(Auth::check() && Auth::user()->isAdmin())
+            <a href="{{ URL::route('forum-delete-thread', $thread->id) }}" class="btn btn-danger pull-right">Delete Thread</a>
+        @endif
     </div>
     <div class="well">
         <h1>{{ $thread->title }}</h1>
@@ -32,6 +33,9 @@
             <h4>{{ $comment->author->username }} on {{ $comment->created_at }}</h4>
             <hr/>
             <p>{{ nl2br(BBCode::parse($comment->body)) }}</p>
+            @if(Auth::check() && Auth::user()->isAdmin())
+                <a class="btn btn-danger" href="{{ URL::route('forum-delete-comment', $comment->id) }}">Delete Comment</a>
+            @endif
         </div>
     @endforeach
 

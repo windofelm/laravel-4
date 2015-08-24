@@ -29,8 +29,7 @@
 			<div class="clearfix"></div>
 
 			<div class="form-group col-md-3 {{ ($errors->has('remember')) ? 'has-error' : '' }}">
-				<label for="pass1">Beni Hatırla: </label>
-				<input id="remember" name="remember" type="checkbox" class="form-control">	
+				<input id="remember" name="remember" type="checkbox"> <span style="position: relative;top: -2px;">Remember me !</span>
 			</div>
 			<div class="clearfix"></div>
 

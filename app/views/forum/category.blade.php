@@ -29,7 +29,7 @@
 
                         <a href="{{ URL::route('forum-get-new-thread', $category->id) }}" id="" class="btn btn-success btn-xs pull-right">New Thread</a>
                         <a href="#" id="{{ $category->id }}" class="btn btn-danger btn-xs pull-right delete_category" data-toggle="modal" data-target="#category_delete"  style="margin-right: 5px;">Delete</a>
-                    @else
+                    @elseif(Auth::check())
                         <a href="{{ URL::route('forum-get-new-thread', $category->id) }}" id="" class="btn btn-success btn-xs pull-right">New Thread</a>
 
                     @endif

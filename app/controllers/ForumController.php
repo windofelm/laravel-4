@@ -307,4 +307,23 @@ class ForumController extends BaseCOntroller{
         }
     }
 
+
+    public function deleteComment($id){
+
+        $comment = ForumComment::find($id);
+        if($comment == null){
+
+            return Redirect::route('forum')->with('fail' ,'That comment that not exist');
+        }
+
+        $threadid = $comment->thread->id;
+        if($comment->delete()){
+
+            return Redirect::route('forum-thread', $threadid)->with('success', 'The comment was deleted.');
+        }else{
+
+            return Redirect::route('forum-thread', $threadid)->with('fail', 'An error occured while deleting the comment.');
+        }
+    }
+
 }
