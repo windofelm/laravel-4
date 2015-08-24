@@ -269,4 +269,42 @@ class ForumController extends BaseCOntroller{
             }
         }
     }
+
+
+    public function storeComment($id){
+
+        $thread = ForumThread::find($id);
+        if($thread == null){
+
+            return Redirect::route('forum')->with('fail', 'That thread does not exist.');
+        }
+
+        $validator = Validator::make(Input::all(), array(
+
+            'body' => 'required|min:5'
+        ));
+
+        if($validator->fails()){
+
+            return Redirect::route('forum-thread', $id)->withInput()->withErrors($validator)->with('fail', 'Please fill in the form correctly.');
+        }else{
+
+            $comment = new ForumComment();
+
+            $comment->body = Input::get('body');
+            $comment->author_id = Auth::user()->id;
+            $comment->thread_id = $id;
+            $comment->category_id = $thread->category->id;
+            $comment->group_id = $thread->group->id;
+
+            if($comment->save()){
+
+                return Redirect::route('forum-thread', $id)->with('success', 'The comment was saved.');
+            }else{
+
+                return Redirect::route('forum-thread', $id)->with('fail', 'An error occured while saving.');
+            }
+        }
+    }
+
 }

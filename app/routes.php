@@ -48,7 +48,7 @@ Route::group(array('prefix' => '/forum'),function(){
         Route::group(array('before' => 'csrf'), function(){
 
             Route::post('/thread/{id}/new', array('uses' => 'ForumController@storeThread', 'as' => 'forum-store-thread'));
-
+            Route::post('/comment/{id}/new', array('uses' =>'ForumController@storeComment', 'as' => 'forum-store-comment'));
         });
     });
 
