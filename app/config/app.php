@@ -122,7 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
-        'Golonka\BBCode\BBCodeParserServiceProvider'
+        'Golonka\BBCode\BBCodeParserServiceProvider',
+        'Barryvdh\Debugbar\ServiceProvider',
 
 	),
 
@@ -191,7 +192,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-        'BBCode' => 'Golonka\BBCode\Facades\BBCodeParser'
+        'BBCode' => 'Golonka\BBCode\Facades\BBCodeParser',
 
 	),
 

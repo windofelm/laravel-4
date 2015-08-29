@@ -5,7 +5,8 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-        "golonka/bbcodeparser": "v2.1.0"
+        "golonka/bbcodeparser": "v2.1.0",
+        "barryvdh/laravel-debugbar" : "v1.8.0"
 	},
 	"autoload": {
 		"classmap": [
