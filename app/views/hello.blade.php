@@ -7,5 +7,5 @@
 
 @section('content')
 
-<div class="col-md-12"><a href="sample">Sample Code</a></div>
+<div class="col-md-12"><a href="sample">Hello, Laravel 4.2</a></div>
 @stop

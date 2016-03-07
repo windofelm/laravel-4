@@ -123,7 +123,6 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
         'Golonka\BBCode\BBCodeParserServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider',
 
 	),
 
